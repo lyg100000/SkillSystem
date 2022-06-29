@@ -9,13 +9,13 @@ namespace SkillSystem.Editor
     public class SkillEditorState
     {
         readonly SkillEditor m_editor;
-        public static readonly Vector2 TimeAreaDefaultRange = new Vector2(-Constants.timeAreaShownRangePadding, 5.0f);
+        public static Vector2 TimeAreaDefaultRange = new Vector2(-Constants.timeAreaShownRangePadding, 5.0f);
         Vector2 m_timeAreaShownRange = TimeAreaDefaultRange;
 
         float m_SequencerHeaderWidth = Constants.defaultHeaderWidth;
         float m_BindingAreaWidth = Constants.defaultBindingAreaWidth;
 
-        public float frameRate { get; set; }
+        public float frameRate { get; set; } = 60;
 
 
         public SkillEditorState(SkillEditor editor)
@@ -48,6 +48,10 @@ namespace SkillSystem.Editor
                     return m_timeAreaShownRange;
 
                 return TimeAreaDefaultRange;
+            }
+
+            set {
+                m_timeAreaShownRange = TimeAreaDefaultRange = value;
             }
         }
 
